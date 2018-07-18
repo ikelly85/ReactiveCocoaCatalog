@@ -11,14 +11,14 @@ import Argo
 
 protocol PaginationRequest: Request
 {
-    associatedtype Response: PaginationResponseType
+    //associatedtype Response: PaginationResponseType
 
     var page: Int { get }
 
     func requestWithPage(_ page: Int) -> Self
 }
 
-struct PaginationResponse<Item: Decodable>: PaginationResponseType
+/*struct PaginationResponse<Item: Decodable>: PaginationResponseType
 {
     let items: [Item]
 
@@ -49,4 +49,4 @@ extension PaginationResponseType
     {
         return self.nextPage != nil
     }
-}
+}*/

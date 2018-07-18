@@ -29,7 +29,7 @@ extension GitHubRequest
         return URL(string: "https://api.github.com")!
     }
 }
-
+/*
 /// - Warning: CAN NOT be `extension Request` with error "Segmentation fault: 11".
 extension GitHubRequest where Response: Sequence, Response.Iterator.Element: Decodable, Response.Iterator.Element.DecodedType == Response.Iterator.Element
 {
@@ -72,12 +72,13 @@ extension GitHubRequest where Response: PaginationResponseType, Response.Item: D
             .dematerialize()
     }
 }
+ */
 
 // MARK: User
 
 extension GitHubAPI
 {
-    struct UsersRequest: GitHubRequest
+    /*struct UsersRequest: GitHubRequest
     {
         typealias Response = [User]
 
@@ -115,14 +116,14 @@ extension GitHubAPI
                 <^> j <| "login"
                 <*> (j <| "avatar_url").flatMap { .fromOptional(URL(string: $0)) }
         }
-    }
+    }*/
 }
 
 // MARK: Repository
 
 extension GitHubAPI
 {
-    struct SearchRepositoriesRequest: GitHubRequest, PaginationRequest
+    /*struct SearchRepositoriesRequest: GitHubRequest, PaginationRequest
     {
         typealias Response = PaginationResponse<Repository>
 
@@ -178,5 +179,5 @@ extension GitHubAPI
         {
             return "Repository(id: \(id), name: \(fullName), star: \(stargazersCount))"
         }
-    }
+    }*/
 }

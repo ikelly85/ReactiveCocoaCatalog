@@ -12,7 +12,7 @@ import Foundation
 
 private let _maxLogCharacterCount = 200
 
-func logSink<T>(_ name: String) -> (T) -> ()
+func logSink<T>(_ name: String) -> ((T) -> Void)
 {
     return { arg in
         var argChars = "\(arg)".characters

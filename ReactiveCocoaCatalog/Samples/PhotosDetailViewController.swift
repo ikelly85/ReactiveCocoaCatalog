@@ -21,13 +21,13 @@ final class PhotosDetailViewController: UIViewController, StoryboardSceneProvide
 
     let viewModel = PhotosLikeDetailViewModel()
 
-    var photo: FlickrAPI.Photo? // var, because it's storyboard
+    //var photo: FlickrAPI.Photo? // var, because it's storyboard
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
 
-        guard let photo = self.photo else {
+        /*guard let photo = self.photo else {
             fatalError("`FlickrAPI.Photo` is not set.")
         }
 
@@ -57,6 +57,7 @@ final class PhotosDetailViewController: UIViewController, StoryboardSceneProvide
             <~ self.likeButton!.reactive.controlEvents(.touchUpInside)
                 .withLatest(from: PhotosLikeManager.likes[photo.imageURL].producer)
                 .map { $1.inverse }
+ */
     }
 }
 

@@ -11,9 +11,9 @@ internal func const<A, B>(_ a: A) -> (B) -> A
 }
 
 /// Unary negation.
-internal func negate<N: SignedNumber>(_ x: N) -> N
+internal func negate<N: SignedNumeric & Comparable>(_ x: N) -> N
 {
-    return -x
+    return x * -1
 }
 
 /// Haskell `(:)` (cons operator) for replacing slow `[x] + xs`.

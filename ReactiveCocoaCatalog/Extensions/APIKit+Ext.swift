@@ -36,7 +36,7 @@ extension Session
 }
 
 // MARK: APIKit + Argo
-
+/*
 extension Request where Response: Decodable, Response.DecodedType == Response
 {
     /// Automatic decoding.
@@ -44,4 +44,4 @@ extension Request where Response: Decodable, Response.DecodedType == Response
     {
         return try decode(object).dematerialize()
     }
-}
+}*/

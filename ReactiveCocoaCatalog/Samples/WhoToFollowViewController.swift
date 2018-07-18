@@ -40,12 +40,12 @@ class WhoToFollowViewController: UIViewController, NibSceneProvider
         let refreshProducer = SignalProducer(self.refreshButton!.reactive.controlEvents(.touchUpInside))
             .map { Optional($0) }
 
-        let fetchedUsersProducer = refreshProducer
+        /*let fetchedUsersProducer = refreshProducer
             .prefix(value: nil)   // startup refresh
             .flatMap(.merge) { _ in
                 return _randomUsersProducer()
                     .ignoreCastError(NoError.self)
-            }
+            }*/
 
         func bindButton(_ button: UIButton)
         {
@@ -53,7 +53,7 @@ class WhoToFollowViewController: UIViewController, NibSceneProvider
                 .map { Optional($0) }
                 .prefix(value: nil)    // startup userButton tap
 
-            SignalProducer.combineLatest(buttonTapProducer, fetchedUsersProducer)
+            /*SignalProducer.combineLatest(buttonTapProducer, fetchedUsersProducer)
                 .map { _, users -> GitHubAPI.User? in
                     return users[random(users.count)]
                 }
@@ -69,6 +69,7 @@ class WhoToFollowViewController: UIViewController, NibSceneProvider
                         button?.hnk_setImageFromURL(avatarURL, state: .normal)
                     }
                 }
+ */
         }
 
         bindButton(self.user1Button!)
@@ -78,8 +79,9 @@ class WhoToFollowViewController: UIViewController, NibSceneProvider
     }
 }
 
-private func _randomUsersProducer(since: Int = random(500)) -> SignalProducer<[GitHubAPI.User], SessionTaskError>
+/*private func _randomUsersProducer(since: Int = random(500)) -> SignalProducer<[GitHubAPI.User], SessionTaskError>
 {
     let request = GitHubAPI.UsersRequest(since: since)
     return Session.responseProducer(request)
 }
+*/

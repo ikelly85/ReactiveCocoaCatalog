@@ -17,11 +17,11 @@ final class PaginationViewModel<Req: PaginationRequest>
     let refreshObserver: Observer<(), NoError>
     let loadNextObserver: Observer<(), NoError>
 
-    let items: Property<[Req.Response.Item]>
-    private let _items = MutableProperty<[Req.Response.Item]>([])
+    //let items: Property<[Req.Response.Item]>
+    //private let _items = MutableProperty<[Req.Response.Item]>([])
 
     let lastLoaded: Property<(page: Int, hasNext: Bool)>
-    private let _lastLoaded = MutableProperty<(page: Int, hasNext: Bool)>(page: 0, hasNext: true)
+    private let _lastLoaded = MutableProperty<(page: Int, hasNext: Bool)>((page: 0, hasNext: true))
 
     let loading: Property<Bool>
     private let _loading = MutableProperty(false)
@@ -32,7 +32,7 @@ final class PaginationViewModel<Req: PaginationRequest>
     {
         self.paginationRequest = paginationRequest
 
-        self.items = Property(self._items)
+        //self.items = Property(self._items)
         self.lastLoaded = Property(self._lastLoaded)
         self.loading = Property(self._loading)
 
@@ -83,7 +83,7 @@ final class PaginationViewModel<Req: PaginationRequest>
         ])
             .on(event: logSink("loading"))
 
-        self._items <~ refreshPipe.0.map { [] }
+        /*self._items <~ refreshPipe.0.map { [] }
 
         self._items <~ response
             .ignoreCastError(NoError.self)
@@ -97,7 +97,7 @@ final class PaginationViewModel<Req: PaginationRequest>
         self._lastLoaded <~ Signal.zip(request, response.errorToNilValue())
             .map { req, resOpt in resOpt.map { (page: req.page, hasNext: $0.hasNextPage) } }
             .skipNil()
-            .on(event: logSink("_lastLoaded"))
+            .on(event: logSink("_lastLoaded"))*/
 
     }
 }

@@ -17,7 +17,7 @@ final class MenuManager
     let tabViewControllersProperty = MutableProperty<[UIViewController]>([])
 
     let menusProperty: Property<(main: [MenuType], sub: [MenuType])>
-    private let _menusProperty = MutableProperty<(main: [MenuType], sub: [MenuType])>(main: [], sub: [])
+    private let _menusProperty = MutableProperty<(main: [MenuType], sub: [MenuType])>((main: [], sub: []))
 
     /// Dummy Menu API Action.
     let menuAction = Action<TimeInterval, MenuBadgeDummyAPI.MenuResponse, NoError> { input in

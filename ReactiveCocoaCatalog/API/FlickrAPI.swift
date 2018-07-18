@@ -30,19 +30,20 @@ extension FlickrRequest
 }
 
 /// - Warning: CAN NOT be `extension Request` with error "Segmentation fault: 11".
-extension FlickrRequest where Response: Sequence, Response.Iterator.Element: Decodable, Response.Iterator.Element.DecodedType == Response.Iterator.Element
+/*extension FlickrRequest where Response: Sequence, Response.Iterator.Element: Decodable, Response.Iterator.Element.DecodedType == Response.Iterator.Element
 {
     /// Automatic decoding (array).
     func response(from object: Any, urlResponse: HTTPURLResponse) throws -> [Response.Iterator.Element]
     {
         return try decode(object).dematerialize()
     }
-}
+}*/
 
 // MARK: PhotosSearch
 
 extension FlickrAPI
 {
+ /*
     /// - SeeAlso: [Flickr Api Explorer - flickr.photos.search](https://www.flickr.com/services/api/explore/flickr.photos.search)
     struct PhotosSearchRequest: FlickrRequest, PaginationRequest
     {
@@ -108,9 +109,9 @@ extension FlickrAPI
                     <^> (j <| ["photos", "page"])
                     <*> (j <| ["photos", "pages"]))
         }
-    }
+    }*/
 
-    struct Photo: Decodable, CustomStringConvertible
+    struct Photo: CustomStringConvertible
     {
         let farmId: Int
         let serverId: String
@@ -148,4 +149,5 @@ extension FlickrAPI
             return URL(string: "https://farm\(farmId).staticflickr.com/\(serverId)/\(photoId)_\(secret)_m.jpg")!
         }
     }
+
 }

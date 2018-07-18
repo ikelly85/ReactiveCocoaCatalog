@@ -25,9 +25,9 @@ class PaginationViewController: UITableViewController, StoryboardSceneProvider
 {
     @IBOutlet weak var indicatorView: UIActivityIndicatorView?
 
-    let viewModel = PaginationViewModel(
+    /*let viewModel = PaginationViewModel(
         paginationRequest: GitHubAPI.SearchRepositoriesRequest(query: "Swift")
-    )
+    )*/
 
     override func viewDidLoad()
     {
@@ -39,6 +39,7 @@ class PaginationViewController: UITableViewController, StoryboardSceneProvider
         let refreshAction = Action<(), (), NoError> { _ in .init(value: ()) }
         refreshButtonItem.reactive.pressed = CocoaAction(refreshAction)
 
+        /*
         refreshAction.values
             .observe(self.viewModel.refreshObserver)
 
@@ -58,7 +59,7 @@ class PaginationViewController: UITableViewController, StoryboardSceneProvider
             }
 
         // Trigger refresh manually.
-        self.viewModel.refreshObserver.send(value: ())
+        self.viewModel.refreshObserver.send(value: ())*/
     }
 }
 
@@ -68,17 +69,18 @@ extension PaginationViewController
 {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return self.viewModel.items.value.count
+        return 1
+        //return self.viewModel.items.value.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: _cellIdentifier, for: indexPath)
 
-        let repository = self.viewModel.items.value[indexPath.row]
+        //let repository = self.viewModel.items.value[indexPath.row]
 
-        cell.textLabel?.text = repository.fullName
-        cell.detailTextLabel?.text = "🌟\(repository.stargazersCount)"
+        //cell.textLabel?.text = repository.fullName
+        //cell.detailTextLabel?.text = "🌟\(repository.stargazersCount)"
 
         return cell
     }

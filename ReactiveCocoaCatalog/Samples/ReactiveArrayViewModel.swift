@@ -27,7 +27,7 @@ final class ReactiveArrayViewModel: NSObject, ReactiveDataSourceType
 {
     let sections = ReactiveArray<Section>()
 
-    let sectionOrItem = MutableProperty<(SectionOrItem, Int)>(.section, 1)
+    let sectionOrItem = MutableProperty<(SectionOrItem, Int)>((.section, 1))
 
     fileprivate let _cellIdentifier: String
     fileprivate let _headerIdentifier: String?

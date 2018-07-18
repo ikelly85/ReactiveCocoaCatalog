@@ -47,7 +47,7 @@ class AutomatonViewController: UIViewController, StoryboardSceneProvider
         {
             return timer(interval: .seconds(Int(interval)), on: QueueScheduler.main)
                 .take(first: count)
-                .scan(0) { $0.0 + 1 }
+                .scan(0) { (test, _) in test + 1 }
                 .prefix(value: 0)
                 .map {
                     switch $0 {
@@ -58,7 +58,7 @@ class AutomatonViewController: UIViewController, StoryboardSceneProvider
                 }
                 .on(value: textObserver.send(value:))
                 .then(value: nextInput)
-                .on(interrupted: logSink("\(status) interrupted"))
+                //.on(interrupted: logSink("\(status) interrupted"))
         }
 
         let loginOKProducer = countUpProducer(status: "Login", nextInput: .loginOK)

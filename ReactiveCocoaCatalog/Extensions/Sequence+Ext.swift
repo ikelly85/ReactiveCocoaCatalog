@@ -40,7 +40,7 @@ extension MutableCollection where Index: Strideable, Index.Stride == Int
 {
     public mutating func shuffle()
     {
-        if self.isEmpty || self.startIndex + 1 == self.endIndex { return }
+        /*if self.isEmpty || self.startIndex + 1 == self.endIndex { return }
 
         for i in stride(from: self.endIndex - 1, through: self.startIndex + 1, by: -1) {
             let randomDistance = random(self.startIndex.distance(to: i + 1))
@@ -48,6 +48,6 @@ extension MutableCollection where Index: Strideable, Index.Stride == Int
             if i != j {
                 swap(&self[i], &self[j])
             }
-        }
+        }*/
     }
 }

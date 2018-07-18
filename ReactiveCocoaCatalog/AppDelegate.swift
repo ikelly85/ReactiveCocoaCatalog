@@ -14,17 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     var window: UIWindow?
 
-    func _setupAppearance()
-    {
-        let font = UIFont(name: "AvenirNext-Medium", size: 16)!
-
-        UINavigationBar.appearance().titleTextAttributes = [ NSFontAttributeName: font ]
-        UIBarButtonItem.appearance().setTitleTextAttributes([ NSFontAttributeName: font ], for: .normal)
-    }
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool
     {
-        self._setupAppearance()
 
         let splitVC = self.window!.rootViewController as! UISplitViewController
         splitVC.delegate = self

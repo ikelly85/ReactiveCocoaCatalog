@@ -89,7 +89,7 @@ class ZundokoViewController: UIViewController, NibSceneProvider
 
     private func _printAll(_ message: Any)
     {
-        self.count = self.count + 1
+        self.count += 1
         print("\(self.count):", message)
 
         guard let textView = self.textView else { return }

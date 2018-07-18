@@ -447,6 +447,7 @@
 		486CF3311B53B4710056E591 /* Samples */ = {
 			isa = PBXGroup;
 			children = (
+				A2A65D0920FF55D200A36355 /* Checkout */,
 				1FC7EA291C9FE8BD00C6B76C /* TextField (throttle) */,
 				1FC7EA281C9FE8AE00C6B76C /* Multiple TextField (login) */,
 				1FC5913B1CB5EA8000CBD02E /* ColorSlider */,
@@ -524,6 +525,13 @@
 				48D9145A1B4FB4C400E70080 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A2A65D0920FF55D200A36355 /* Checkout */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Checkout;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -848,7 +856,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.inamiy.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -864,7 +872,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.inamiy.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

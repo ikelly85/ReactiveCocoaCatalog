@@ -37,9 +37,9 @@ final class PhotosViewController: UICollectionViewController, StoryboardScenePro
     /// - Todo:  What is the best practice for footer loading indicator inside UICollectionView?
     let indicatorView = UIActivityIndicatorView(activityIndicatorStyle: .white)
 
-    let viewModel = PaginationViewModel(
+    /*let viewModel = PaginationViewModel(
         paginationRequest: FlickrAPI.PhotosSearchRequest(tags: ["landmark"], page: 1)
-    )
+    )*/
 
     let imageCache = ImageCache()
 
@@ -66,7 +66,7 @@ final class PhotosViewController: UICollectionViewController, StoryboardScenePro
         refreshButtonItem.reactive.pressed = CocoaAction(refreshAction)
 
         // Send `refreshAction` values to `viewModel.refreshObserver`.
-        refreshAction.values
+        /*refreshAction.values
             .observe(self.viewModel.refreshObserver)
 
         // Send `contentOffset` to `viewModel.loadNextObserver`.
@@ -81,13 +81,13 @@ final class PhotosViewController: UICollectionViewController, StoryboardScenePro
         // Send `viewModel.loading` to `indicatorView`.
         self.indicatorView.reactive.isAnimating
             <~ self.viewModel.loading.producer
-
+*/
         // Call `collectionView.reloadData()` on `viewModel.items` change.
-        self.viewModel.items.producer
+        /*self.viewModel.items.producer
             .startWithValues { [weak self] repositories in
                 self?.collectionView?.reloadData()
             }
-
+        */
         // Create `detailVC` on `didSelectItemAtIndexPath()`.
         bridgedSignalProducer(from: self.rac_signal(for: Selector._didSelectRow.0, from: Selector._didSelectRow.1))
             .ignoreCastError(NoError.self)
@@ -95,22 +95,22 @@ final class PhotosViewController: UICollectionViewController, StoryboardScenePro
                 let racTuple = racTuple as! RACTuple
                 let indexPath = racTuple.second as! NSIndexPath
 
-                let photo: FlickrAPI.Photo = self.viewModel.items.value[indexPath.row]
+                //let photo: FlickrAPI.Photo = self.viewModel.items.value[indexPath.row]
 
                 let detailVC = PhotosDetailViewController.storyboardScene.instantiate()
-                detailVC.photo = photo
+                //detailVC.photo = photo
 
                 // Send image to `detailVC.viewModel`.
-                detailVC.viewModel.imageProperty
+                /*detailVC.viewModel.imageProperty
                     <~ _cacheOrDownloadImageProducer(url: photo.imageURL, cache: self.imageCache)
                         .map { $0.0 }
-
+                */
                 self.show(detailVC, sender: nil)
             }
 
         // Workaround for non-@IBOutlet `indicatorView` to show & hide at UICollectionView-footer,
         // even though UICollectionView itself doesn't provide `tableFooterView`-like property.
-        self.viewModel.loading.signal
+        /*self.viewModel.loading.signal
             .observeValues { [unowned self] isOn in
                 if isOn {
                     let reusableViews = self.collectionView!.subviews
@@ -149,6 +149,7 @@ final class PhotosViewController: UICollectionViewController, StoryboardScenePro
 
         // Trigger refresh manually.
         self.viewModel.refreshObserver.send(value: ())
+ */
     }
 }
 
@@ -158,7 +159,8 @@ extension PhotosViewController //: UICollectionViewDataSource
 {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
-        return self.viewModel.items.value.count
+        return 1
+        //return self.viewModel.items.value.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
@@ -167,12 +169,12 @@ extension PhotosViewController //: UICollectionViewDataSource
 
         cell.alpha = 0.02   // almost invisible, clickable alpha
 
-        let photo: FlickrAPI.Photo = self.viewModel.items.value[indexPath.row]
+        //let photo: FlickrAPI.Photo = self.viewModel.items.value[indexPath.row]
 
         let prepareForReuse = cell.reactive.prepareForReuse.take(first: 1)
 
         // Load image & set to `cell.imageView`.
-        _cacheOrDownloadImageProducer(url: photo.imageURL, cache: self.imageCache)
+        /*_cacheOrDownloadImageProducer(url: photo.imageURL, cache: self.imageCache)
             .take(until: prepareForReuse) // can interrupt downloading when out of screen
             .startWithSignal { signal, disposable in
                 // Set image.
@@ -206,6 +208,7 @@ extension PhotosViewController //: UICollectionViewDataSource
                 .withLatest(from: PhotosLikeManager.likes[photo.imageURL].producer)
                 .map { $1.inverse }
                 .take(until: prepareForReuse)
+ */
 
         return cell
     }
