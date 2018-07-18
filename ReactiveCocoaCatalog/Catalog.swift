@@ -19,6 +19,11 @@ struct Catalog
     {
         return [
             Catalog(
+                title: "Checkout",
+                description: "Checkout",
+                scene: *CheckoutViewController.storyboardScene
+            ),
+            Catalog(
                 title: "UITextField",
                 description: "throttle()",
                 scene: *TextFieldViewController.nibScene

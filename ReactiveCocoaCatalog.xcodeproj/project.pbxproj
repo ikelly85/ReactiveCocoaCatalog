@@ -98,6 +98,10 @@
 		48EA63911BA938A5007F1251 /* MultipleTextFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EA63871BA92F5D007F1251 /* MultipleTextFieldViewController.swift */; };
 		48EA63921BA938A5007F1251 /* MultipleTextFieldViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48EA63881BA92F5D007F1251 /* MultipleTextFieldViewController.xib */; };
 		48EA63941BA939A9007F1251 /* ReactiveCocoa+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EA63931BA939A9007F1251 /* ReactiveCocoa+Ext.swift */; };
+		A2A65D0E20FF580500A36355 /* CheckoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A65D0A20FF580400A36355 /* CheckoutCell.swift */; };
+		A2A65D0F20FF580500A36355 /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A65D0B20FF580500A36355 /* CheckoutViewController.swift */; };
+		A2A65D1020FF580500A36355 /* Checkout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2A65D0C20FF580500A36355 /* Checkout.storyboard */; };
+		A2A65D1120FF580500A36355 /* CheckoutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2A65D0D20FF580500A36355 /* CheckoutCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -219,6 +223,10 @@
 		48EA63891BA92F5D007F1251 /* TextFieldViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldViewController.swift; sourceTree = "<group>"; };
 		48EA638A1BA92F5D007F1251 /* TextFieldViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFieldViewController.xib; sourceTree = "<group>"; };
 		48EA63931BA939A9007F1251 /* ReactiveCocoa+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ReactiveCocoa+Ext.swift"; sourceTree = "<group>"; };
+		A2A65D0A20FF580400A36355 /* CheckoutCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutCell.swift; sourceTree = "<group>"; };
+		A2A65D0B20FF580500A36355 /* CheckoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
+		A2A65D0C20FF580500A36355 /* Checkout.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Checkout.storyboard; sourceTree = "<group>"; };
+		A2A65D0D20FF580500A36355 /* CheckoutCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckoutCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -530,6 +538,10 @@
 		A2A65D0920FF55D200A36355 /* Checkout */ = {
 			isa = PBXGroup;
 			children = (
+				A2A65D0C20FF580500A36355 /* Checkout.storyboard */,
+				A2A65D0A20FF580400A36355 /* CheckoutCell.swift */,
+				A2A65D0D20FF580500A36355 /* CheckoutCell.xib */,
+				A2A65D0B20FF580500A36355 /* CheckoutViewController.swift */,
 			);
 			name = Checkout;
 			sourceTree = "<group>";
@@ -621,6 +633,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2A65D1020FF580500A36355 /* Checkout.storyboard in Resources */,
+				A2A65D1120FF580500A36355 /* CheckoutCell.xib in Resources */,
 				48D9144B1B4FB4C400E70080 /* Main.storyboard in Resources */,
 				1FC5913D1CB5EAC200CBD02E /* ColorSliderViewController.xib in Resources */,
 				487B46761BA96A1D00C1DAD6 /* WhoToFollowViewController.xib in Resources */,
@@ -693,6 +707,7 @@
 				1F2D33BC1CB8DA3F005E38E6 /* MenuId.swift in Sources */,
 				1F28A09B1CA222B600287194 /* MenuManager.swift in Sources */,
 				1F28635A1C9F7C85004627D3 /* PaginationViewModel.swift in Sources */,
+				A2A65D0E20FF580500A36355 /* CheckoutCell.swift in Sources */,
 				1F8CF17E1CC5C5F90047C2D2 /* PhotosDetailViewController.swift in Sources */,
 				1F721D6D1C952F290022EC57 /* ZundokoViewController.swift in Sources */,
 				1F2D33BA1CB8D565005E38E6 /* MenuType.swift in Sources */,
@@ -712,6 +727,7 @@
 				1FD70D471CB2B5FD00F8AFC2 /* ReactiveCollectionViewController.swift in Sources */,
 				48EA63941BA939A9007F1251 /* ReactiveCocoa+Ext.swift in Sources */,
 				487750711CA27C4B00B56E7B /* Prelude.swift in Sources */,
+				A2A65D0F20FF580500A36355 /* CheckoutViewController.swift in Sources */,
 				1F1BB5991CBEB21E00CE03B8 /* FlickrAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
