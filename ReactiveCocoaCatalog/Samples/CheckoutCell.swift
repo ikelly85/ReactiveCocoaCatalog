@@ -12,5 +12,7 @@ import ReactiveSwift
 import ReactiveCocoa
 
 class CheckoutCell: UITableViewCell {
-
+    @IBOutlet weak var inputTypeView: UIStackView!
+    @IBOutlet weak var recentDeliveryContainerView: UIStackView!
+    @IBOutlet weak var directInputContainerView: UIStackView!
 }
